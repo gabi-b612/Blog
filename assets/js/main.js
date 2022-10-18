@@ -25,11 +25,21 @@ const toggleMenu = () => {
 }
 
 menuToggleIcon.addEventListener('click', toggleMenu);
-
 // Open/Close search form popup
 
 // -- Close the search form popup on ESC keypress
 
 // Switch theme/add to local storage
+const bodyElement = document.body;
+const themToggleBtn = selectElement('#theme-toggle-btn');
 
+themToggleBtn.addEventListener('click', () => {
+    bodyElement.classList.toggle('light-theme');
+
+    if (bodyElement.classList.contains('light-theme')){
+        localStorage.setItem('currentTheme', 'themeActive');
+    } else {
+        localStorage.removeItem('currentTheme');
+    }
+});
 // Swiper

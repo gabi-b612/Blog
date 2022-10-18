@@ -32,7 +32,11 @@ menuToggleIcon.addEventListener('click', toggleMenu);
 // Switch theme/add to local storage
 const bodyElement = document.body;
 const themToggleBtn = selectElement('#theme-toggle-btn');
+const currentTheme = localStorage.getItem('currentTheme');
 
+if (currentTheme) {
+    bodyElement.classList.add('light-theme');
+}
 themToggleBtn.addEventListener('click', () => {
     bodyElement.classList.toggle('light-theme');
 

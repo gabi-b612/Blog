@@ -23,12 +23,20 @@ const toggleMenu = () => {
     mobileMenu.classList.toggle('activated');
     menuToggleIcon.classList.toggle('activated');
 }
-
 menuToggleIcon.addEventListener('click', toggleMenu);
+
 // Open/Close search form popup
+const formOpenBtn = selectElement('#search-icon');
+const formCloseBtn = selectElement('#form-close-btn');
+const searchFormContainer = selectElement('#search-form-container');
+
+formOpenBtn.addEventListener('click', () => searchFormContainer.classList.add('activated'));
+formCloseBtn.addEventListener('click', () => searchFormContainer.classList.remove('activated'));
 
 // -- Close the search form popup on ESC keypress
-
+window.addEventListener('keyup', event => {
+   if(event.key === 'Escape') searchFormContainer.classList.remove('activated');
+});
 // Switch theme/add to local storage
 const bodyElement = document.body;
 const themToggleBtn = selectElement('#theme-toggle-btn');
